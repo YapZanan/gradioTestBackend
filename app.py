@@ -1,13 +1,14 @@
-import requests
 from flask import Flask, request, jsonify
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from flores200_codes import flores_lan, flores_lan_to_codes
 import openai
+from flask_cors import CORS
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 app = Flask(__name__)
+CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/', 'http://localhost:3000/']}})
 
 model_dict = {}
 
