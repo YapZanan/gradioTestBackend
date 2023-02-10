@@ -5,7 +5,7 @@ from flores200_codes import flores_lan, flores_lan_to_codes
 import openai
 from flask_cors import CORS
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 app = Flask(__name__)
 CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/']}})
