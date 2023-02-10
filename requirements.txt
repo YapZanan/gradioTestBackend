@@ -71,3 +71,5 @@ websockets==10.4
 Werkzeug==2.2.2
 yarl==1.8.2
 zipp==3.12.1
+
+transformers~=4.27.0.dev0
