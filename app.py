@@ -82,7 +82,6 @@ def handle_translate():
 
 @app.route("/languages", methods=["GET"])
 def getlanguages():
-    response = requests.get("https://naufalnlp.azurewebsites.net/languages")
     return jsonify(list(flores_lan.keys()))
 
 
