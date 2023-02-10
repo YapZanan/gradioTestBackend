@@ -1,3 +1,4 @@
+import requests
 from flask import Flask, request, jsonify
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
@@ -10,7 +11,8 @@ openai.api_key = "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"
 app = Flask(__name__)
 
 model_dict = {}
-CORS(app, origins=["https://generatorbahasa.vercel.app/"])
+cors = CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/', 'https://localhost:3000']}})
+
 
 TASK = "translation"
 CKPT = "facebook/nllb-200-distilled-600M"
@@ -82,6 +84,7 @@ def handle_translate():
 
 @app.route("/languages", methods=["GET"])
 def getlanguages():
+    response = requests.get("https://naufalnlp.azurewebsites.net/languages")
     return jsonify(list(flores_lan.keys()))
 
 
