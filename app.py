@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, abort
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from flores200_codes import flores_lan, flores_lan_to_codes
@@ -9,6 +9,13 @@ openai.api_key = "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"
 
 app = Flask(__name__)
 CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/', 'http://localhost:3000/']}})
+
+@app.before_request
+def before_request():
+    if "PostmanRuntime" in request.headers.get('User-Agent', '') or "cURL" in request.headers.get('User-Agent', ''):
+        abort(403)
+
+
 
 model_dict = {}
 
@@ -65,6 +72,7 @@ def translate_text(text, src_lang, tgt_lang, max_length=400):
 
     result = translation_pipeline(text)
     return result[0]['translation_text']
+
 
 
 @app.route("/translate", methods=["POST"])
