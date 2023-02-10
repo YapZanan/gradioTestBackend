@@ -5,10 +5,10 @@ from flores200_codes import flores_lan, flores_lan_to_codes
 import openai
 from flask_cors import CORS
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 app = Flask(__name__)
-CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/', 'http://localhost:3000/']}})
+CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/']}})
 
 @app.before_request
 def before_request():
