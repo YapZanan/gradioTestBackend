@@ -3,7 +3,6 @@ from flask import Flask, request, jsonify
 import torch
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, pipeline
 from flores200_codes import flores_lan, flores_lan_to_codes
-from flask_cors import CORS
 import openai
 
 openai.api_key = "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"
@@ -11,7 +10,6 @@ openai.api_key = "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"
 app = Flask(__name__)
 
 model_dict = {}
-cors = CORS(app, resources={r'*': {'origin': ['https://generatorbahasa.vercel.app/', 'https://localhost:3000']}})
 
 
 TASK = "translation"
