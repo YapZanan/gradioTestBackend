@@ -10,7 +10,7 @@ openai.api_key = "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"
 app = Flask(__name__)
 
 model_dict = {}
-CORS(app, origins=["http://localhost:3000"])
+CORS(app, origins=["https://generatorbahasa.vercel.app/"])
 
 TASK = "translation"
 CKPT = "facebook/nllb-200-distilled-600M"
