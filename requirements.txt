@@ -73,3 +73,4 @@ yarl==1.8.2
 zipp==3.12.1
 
 transformers~=4.27.0.dev0
+openai~=0.26.5

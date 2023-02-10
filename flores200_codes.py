@@ -206,10 +206,14 @@ Zulu	zul_Latn'''
 codes_as_string = codes_as_string.split('\n')
 
 flores_codes = {}
+flores_lan = {}
+
 for code in codes_as_string:
     lang, lang_code = code.split('\t')
+    flores_lan[lang] = lang
     flores_codes[lang_code] = lang_code
 
+flores_lan_to_codes = {lan: code for lan, code in zip(flores_lan.values(), flores_codes.keys())}
 
 
 
